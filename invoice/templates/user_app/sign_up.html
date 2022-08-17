@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        body{
+            background-image: url("{% static 'images/back.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .m1{
+        
+        width: 100%;
+        height: 600px;
+        padding-top: 50px;
+        padding-left: 650px;
+
+    }
+    .m2{
+        width: 450px;
+        height: 600px;
+        background-color: rgba(108, 106, 238, 0.048);
+        padding-top: 20px;
+    }
+    h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: rgb(216, 25, 25);
+        margin-top: 10px;
+    }
+    .btn{
+        margin-top: 10px;
+        width: 250px;
+        background-color: rgb(126, 6, 6) ;
+        border: solid 1px rgb(124, 4, 4);;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #fff;
+        margin-left: 100px;
+    }
+    .btn:hover{
+      border: solid 1px rgb(143, 32, 32);;
+      background-color: rgb(153, 34, 34);
+      color: rgb(104, 3, 3);
+      font-weight: bold;
+    }
+    .form-control{
+        width: 400px;
+        margin-left: 20px;
+        border: solid .5px rgb(196, 31, 31);
+        border-radius: 5px;
+        background-color: rgba(237, 237, 237, 0.789);
+        margin-top: 10px;
+    }
+    #inputFname{
+        width: 200px;
+    }
+    #inputLname{
+      width: 160px;
+      margin-right: 20px;
+    }
+    span{
+        color: blueviolet;
+    }
+    h2{
+      text-align: center;
+    }
+    #div1{
+      margin-left: 80px;
+      
+    }
+    #gridCheck{
+      margin-left: 50px;
+    }
+    span{
+      padding-left: 20px;
+    }
+    h6{
+      margin-left: 140px;
+      margin-top: 20px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="m1">
+            <div class="m2">
+                <h2>SIGN UP</h2>
+                <form onsubmit="return validate()" class="row g-3" method="POST">
+                  {% csrf_token %}
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="inputFname" name="f_name" placeholder="First Name">
+                      <span id="s_fname"></span>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="inputLname" name="l_name" placeholder="Last Name">
+                      <span id="s_lname"></span>
+                    </div>
+                    <div class="col-12">
+                      <input type="text" class="form-control" id="inputEmail" name="e_mail" placeholder="Email">
+                     <span id="s_email"></span>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" id="inputPhone" name="p_hone" placeholder="Mobile Number">
+                       <span id="s_number"></span>
+                      </div>
+                    <div class="col-12">
+                      <input type="password" class="form-control" id="inputPassword" name="pass" placeholder="Password">
+                      <span id="s_pass"></span>
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control" id="inputcPassword" placeholder="Confirm Password">
+                        <span id="s_cpass"></span>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                         <div id="div1">I accept the<span>Terms of use</span> &<span>Privacy Policy</span></div>
+                        </label>
+                      </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-light" id="sign">Sign Up</button>
+                      <h6>Already registerd? <a href="{% url 'user_login' %}" id="a2">Login</a></h6>
+    
+                    </div>
+                  </form>
+               
+        </div>
+</body>
+<script>
+    function validate(){
+       var status=1
+       var txt_fname=document.getElementById("inputFname")
+       var txt_lname=document.getElementById("inputLname")
+       var txt_email=document.getElementById("inputEmail")
+       var txt_phone=document.getElementById("inputPhone")
+       var txt_pswd=document.getElementById("inputPassword")
+       var txt_cpswd=document.getElementById("inputcPassword")
+       var txt_check=document.getElementById('gridCheck')
+       var email_pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"           
+       var mobile_pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/ "           
+ 
+ 
+       if(txt_fname.value=="")
+       {
+           document.getElementById("s_fname").innerHTML=" *Please Enter First Name"
+           document.getElementById("s_fname").style.color="red"
+           txt_fname.style.borderColor = "red"
+           status=0
+       }
+       else{
+           document.getElementById("s_fname").innerHTML=""
+           txt_fname.style.borderColor = ""
+           status=1
+       }
+       if(txt_lname.value=="")
+       {
+           document.getElementById("s_lname").innerHTML=" *Please Enter Last Name"
+           document.getElementById("s_lname").style.color="red"
+           txt_lname.style.borderColor = "red"
+           status=0
+ 
+       }
+       else{
+           document.getElementById("s_lname").innerHTML=""
+           txt_lname.style.borderColor = ""
+           status=1
+       }
+       if(txt_email.value=="")
+       {
+           document.getElementById("s_email").innerHTML="*Please Enter Email Address"
+           document.getElementById("s_email").style.color="red"
+           txt_email.style.borderColor = "red"
+           status=0
+ 
+       }else if (txt_email.value.match(email_pattern)){
+           txt_email.style.borderColor = ""
+           document.getElementById("s_email").innerHTML=""
+           status=1
+       }
+       else{
+           document.getElementById("s_email").innerHTML="*Please Enter a valid Email Address"
+           document.getElementById("s_email").style.color="red"
+           txt_email.style.borderColor = "red"
+           status=0
+ 
+       }
+       if(txt_phone.value=="")
+       {
+           document.getElementById("s_number").innerHTML="*Please Enter Mobile number"
+           document.getElementById("s_number").style.color="red"
+           txt_phone.style.borderColor = "red"
+           status=0
+ 
+       }else if (txt_email.value.match(email_pattern)){
+           txt_phone.style.borderColor = ""
+           document.getElementById("s_number").innerHTML=""
+           status=1
+       }
+       else{
+           document.getElementById("s_number").innerHTML="*Please Enter a valid Mobile number"
+           document.getElementById("s_number").style.color="red"
+           txt_phone.style.borderColor = "red"
+           status=0
+ 
+       }
+       if(txt_pswd.value=="")
+       {
+           document.getElementById("s_pass").innerHTML="*Please Enter Password"
+           document.getElementById("s_pass").style.color="red"
+           txt_pswd.style.borderColor = "red"
+           status=0
+ 
+       }
+       else{
+           document.getElementById("s_pass").innerHTML=""
+           txt_pswd.style.borderColor = ""
+           status=1
+ 
+ 
+       }
+       if(txt_cpswd.value=="")
+       {
+           document.getElementById("s_cpass").innerHTML="*Please Enter Confirm Password"
+           document.getElementById("s_cpass").style.color="red"
+           txt_cpswd.style.borderColor = "red"
+           status=0
+ 
+       }
+       else if(txt_pswd.value!=txt_cpswd.value){
+           document.getElementById("s_cpass").innerHTML="*Password does'nt match "
+           document.getElementById("s_cpass").style.color="red"
+           txt_cpswd.style.borderColor = "red"
+           status=0
+ 
+       }
+       else{
+           document.getElementById("s_cpass").innerHTML=""
+           txt_cpswd.style.borderColor = ""
+           status=1 
+ 
+       }      
+       if(status==0){
+           return false;
+       }
+       
+       
+ 
+       
+   }
+ 
+ </script>
+</html>
